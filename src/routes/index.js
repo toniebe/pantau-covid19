@@ -6,6 +6,7 @@ import BerandaScreen from '../screen/BerandaScreen';
 import RsScreen from '../screen/RsScreen';
 import PencegahanScreen from '../screen/PencegahanScreen';
 import RumahSakitScreen from '../screen/RumahSakitScreen';
+import DetailKasurScreen from '../screen/DetailKasurScreen';
 
 import IconBeranda from '../assets/Icon/Menu/beranda.png';
 import IconRS from '../assets/Icon/Menu/rumahsakit.png';
@@ -77,6 +78,13 @@ export default function Router() {
         component={RumahSakitScreen}
         options={{
           headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="DetailKasur"
+        component={DetailKasurScreen}
+        options={{
+          title: 'Detail Kasur',
         }}
       />
     </Stack.Navigator>

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 import {
   StyleSheet,
   Text,
@@ -21,6 +21,7 @@ const RsScreen = ({navigation}) => {
   const [valueProvinsi, setValueProvinsi] = useState(null);
   const [valueCity, setValueCity] = useState(null);
   const [NamaProvinsi, setNamaProvinsi] = useState('');
+
   const getDataProvinsi = () => {
     return fetch('https://rs-bed-covid-api.vercel.app/api/get-provinces')
       .then(response => response.json())
@@ -45,6 +46,14 @@ const RsScreen = ({navigation}) => {
         console.error(error);
       });
   };
+
+  const onCountryOpen = useCallback(() => {
+    setOpenCity(false);
+  }, []);
+
+  const onCityOpen = useCallback(() => {
+    setOpenProvinsi(false);
+  }, []);
 
   useEffect(() => {
     getDataProvinsi();
@@ -75,6 +84,7 @@ const RsScreen = ({navigation}) => {
           </Text>
           <DropDownPicker
             open={openProvinsi}
+            onOpen={onCountryOpen}
             value={valueProvinsi}
             items={dataProvinsi}
             setOpen={setOpenProvinsi}
@@ -94,6 +104,7 @@ const RsScreen = ({navigation}) => {
           </Text>
           <DropDownPicker
             open={openCity}
+            onOpen={onCityOpen}
             value={valueCity}
             items={dataCity}
             setOpen={setOpenCity}

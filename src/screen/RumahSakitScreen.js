@@ -53,6 +53,9 @@ const RumahSakitScreen = ({route, navigation}) => {
             total={item.bed_availability}
             antrian={item.queue}
             noTelpon={item.phone}
+            navigasi={navigation}
+            idHospital={item.id}
+            tipe={tipe}
           />
         )}
       />

@@ -11,6 +11,9 @@ const RumahSakitCard = ({
   total,
   antrian,
   noTelpon,
+  navigasi,
+  idHospital,
+  tipe,
 }) => {
   return (
     <View style={styles.container}>
@@ -64,10 +67,22 @@ const RumahSakitCard = ({
             <Text style={{fontSize: 12, fontWeight: '500'}}>Lihat Lokasi</Text>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() =>
+            navigasi.navigate('DetailKasur', {
+              idHospital: idHospital,
+              alamat: jalanRS,
+              telpon: noTelpon,
+              namaRS: namaRS,
+              tipe: tipe,
+            })
+          }>
           <View style={styles.buttonContainer}>
             <Image source={suiteIcon} style={{height: 10, width: 13}} />
-            <Text style={{fontSize: 12, fontWeight: '500'}}>Lihat Lokasi</Text>
+            <Text style={{fontSize: 12, fontWeight: '500'}}>
+              Lihat Detail Kasur
+            </Text>
           </View>
         </TouchableOpacity>
       </View>
