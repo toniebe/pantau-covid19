@@ -20,7 +20,6 @@ const RsScreen = ({navigation}) => {
   const [openCity, setOpenCity] = useState(false);
   const [valueProvinsi, setValueProvinsi] = useState(null);
   const [valueCity, setValueCity] = useState(null);
-  const [NamaProvinsi, setNamaProvinsi] = useState('');
 
   const getDataProvinsi = () => {
     return fetch('https://rs-bed-covid-api.vercel.app/api/get-provinces')
@@ -34,7 +33,6 @@ const RsScreen = ({navigation}) => {
   };
 
   const getDataCity = valueProvinsi => {
-    console.log(valueProvinsi);
     return fetch(
       `https://rs-bed-covid-api.vercel.app/api/get-cities?provinceid=${valueProvinsi}`,
     )
@@ -59,6 +57,17 @@ const RsScreen = ({navigation}) => {
     getDataProvinsi();
     getDataCity(valueProvinsi);
   }, [valueProvinsi]);
+
+  const filterProvinsi = value => {
+    return dataProvinsi.filter(arr => arr.id === value);
+  };
+
+  const filterCity = value => {
+    return dataCity.filter(arr => arr.id === value);
+  };
+
+  const namaProvinsi = filterProvinsi(valueProvinsi);
+  const namaCity = filterCity(valueCity);
 
   const [checked, setChecked] = useState('1');
 
@@ -180,8 +189,11 @@ const RsScreen = ({navigation}) => {
               provId: valueProvinsi,
               cityId: valueCity,
               tipe: checked,
+              namaProv: namaProvinsi[0].name,
+              namaCity: namaCity[0].name,
             })
-          }>
+          }
+          disabled={valueCity === null ? true : false}>
           <Text
             style={{
               color: valueCity === null ? '#AAAAAA' : 'white',

@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, Text, View, TouchableOpacity, Image} from 'react-native';
 import backIcon from '../assets/Icon/Other/back.png';
 
-const HeaderNav = ({action}) => {
+const HeaderNav = ({action, kota, provinsi, tipe}) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -12,9 +12,10 @@ const HeaderNav = ({action}) => {
           </TouchableOpacity>
         </View>
         <View style={styles.headerMid}>
-          <Text style={{fontSize: 18, fontWeight: '600'}}>Kota Bandung</Text>
+          <Text style={{fontSize: 18, fontWeight: '600'}}>{kota}</Text>
           <Text style={{fontSize: 12, fontWeight: '500'}}>
-            Jawa Barat - Tempat Tidur Covid
+            {provinsi} -
+            {tipe === '1' ? 'Tempat Tidur Covid' : 'Tempat Tidur Non Covid'}
           </Text>
         </View>
         <View style={styles.headerRight}>

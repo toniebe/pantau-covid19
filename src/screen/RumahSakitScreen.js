@@ -14,7 +14,7 @@ import HeaderNav from '../components/HeaderNav';
 import RumahSakitCard from '../components/RumahSakitCard';
 
 const RumahSakitScreen = ({route, navigation}) => {
-  const {provId, cityId, tipe} = route.params;
+  const {provId, cityId, tipe, namaProv, namaCity} = route.params;
   const [data, setData] = useState([]);
   const getHospital = (provId, cityId, tipe) => {
     return fetch(
@@ -22,7 +22,6 @@ const RumahSakitScreen = ({route, navigation}) => {
     )
       .then(response => response.json())
       .then(json => {
-        console.log(json.hospitals);
         setData(json.hospitals);
       })
       .catch(error => {
@@ -36,7 +35,12 @@ const RumahSakitScreen = ({route, navigation}) => {
 
   return (
     <View style={{flex: 1, backgroundColor: 'white'}}>
-      <HeaderNav action={navigation} />
+      <HeaderNav
+        action={navigation}
+        kota={namaCity}
+        provinsi={namaProv}
+        tipe={tipe}
+      />
       <View style={styles.textInputContainer}>
         <TextInput
           placeholder="Cari Bedasarkan Nama Rumah Sakit"
