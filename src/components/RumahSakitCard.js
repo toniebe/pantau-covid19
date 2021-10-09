@@ -1,5 +1,13 @@
-import React from 'react';
-import {StyleSheet, Text, TouchableOpacity, View, Image} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  Image,
+  Platform,
+  Linking,
+} from 'react-native';
 import locationIcon from '../assets/Icon/Other/location.png';
 import suiteIcon from '../assets/Icon/Other/suite.png';
 import phoneIcon from '../assets/Icon/Other/phone.png';
@@ -15,6 +23,41 @@ const RumahSakitCard = ({
   idHospital,
   tipe,
 }) => {
+  const [data, setData] = useState([]);
+
+  const getMap = idHospital => {
+    return fetch(
+      `https://rs-bed-covid-api.vercel.app/api/get-hospital-map?hospitalid=${idHospital}`,
+    )
+      .then(response => response.json())
+      .then(json => {
+        console.log(json.data.gmaps);
+        setData(json.data.gmaps);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  };
+
+  useEffect(() => {
+    getMap(idHospital);
+  }, []);
+
+  const handleMap = () => {
+    Linking.openURL(data);
+  };
+
+  const makeCall = nomer => {
+    let phoneNumber = '';
+    if (Platform.OS === 'android') {
+      phoneNumber = `tel:${nomer}`;
+    } else {
+      phoneNumber = `telprompt:${nomer}`;
+    }
+
+    Linking.openURL(phoneNumber);
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.top}>
@@ -61,9 +104,14 @@ const RumahSakitCard = ({
         </View>
       </View>
       <View style={styles.mid}>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => handleMap(idHospital)}>
           <View style={styles.buttonContainer}>
-            <Image source={locationIcon} style={{height: 13, width: 13}} />
+            <Image
+              source={locationIcon}
+              style={{height: 20, width: 20, resizeMode: 'contain'}}
+            />
             <Text style={{fontSize: 12, fontWeight: '500'}}>Lihat Lokasi</Text>
           </View>
         </TouchableOpacity>
@@ -79,7 +127,10 @@ const RumahSakitCard = ({
             })
           }>
           <View style={styles.buttonContainer}>
-            <Image source={suiteIcon} style={{height: 10, width: 13}} />
+            <Image
+              source={suiteIcon}
+              style={{height: 20, width: 20, resizeMode: 'contain'}}
+            />
             <Text style={{fontSize: 12, fontWeight: '500'}}>
               Lihat Detail Kasur
             </Text>
@@ -94,7 +145,9 @@ const RumahSakitCard = ({
             </Text>
           </View>
         ) : (
-          <TouchableOpacity style={styles.buttonCall}>
+          <TouchableOpacity
+            style={styles.buttonCall}
+            onPress={() => makeCall(noTelpon)}>
             <Image
               source={phoneIcon}
               style={{width: 13, height: 13, marginRight: 10}}

@@ -253,6 +253,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 10,
     borderColor: '#cccccc',
+    zIndex: -1,
   },
   tipe: {
     marginBottom: 20,

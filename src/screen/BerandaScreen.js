@@ -23,9 +23,10 @@ import moment from 'moment';
 const BerandaScreen = () => {
   const [data, setdata] = useState([]);
   const getData = () => {
-    return fetch('http://apicovid19indonesia-v2.vercel.app/api/indonesia')
+    return fetch('https://covid19.mathdro.id/api/countries/ID')
       .then(response => response.json())
       .then(json => {
+        // console.log(json);
         setdata(json);
       })
       .catch(error => {
@@ -73,13 +74,13 @@ const BerandaScreen = () => {
         <View style={styles.kasusCard}>
           <KasusCard
             status="Kasus"
-            total={data.positif}
+            total={data.confirmed.value}
             warna="#FC1441"
             bg_color="rgba(252, 20, 20, 0.1)"
           />
           <KasusCard
             status="Dirawat"
-            total={data.dirawat}
+            // total={data.recovered.value}
             warna="#157FFB"
             bg_color="rgba(21, 127, 251, 0.1)"
           />
@@ -87,13 +88,13 @@ const BerandaScreen = () => {
         <View style={styles.kasusCard}>
           <KasusCard
             status="Sembuh"
-            total={data.sembuh}
+            // total={data.recovered.value}
             warna="#30A64A"
             bg_color="rgba(48, 166, 74, 0.1)"
           />
           <KasusCard
             status="Meninggal Dunia"
-            total={data.meninggal}
+            // total={data.deaths.value}
             warna="#6D757D"
             bg_color="rgba(109, 117, 125, 0.1)"
           />

@@ -5,6 +5,7 @@ const PencegahanScreen = () => {
   return (
     <View style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor="rgb(255,255,255)" />
+      <Text>Pencegahaan Screen</Text>
     </View>
   );
 };

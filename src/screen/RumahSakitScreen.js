@@ -16,6 +16,9 @@ import RumahSakitCard from '../components/RumahSakitCard';
 const RumahSakitScreen = ({route, navigation}) => {
   const {provId, cityId, tipe, namaProv, namaCity} = route.params;
   const [data, setData] = useState([]);
+  const [filterData, setFilterData] = useState([]);
+  const [search, setsearch] = useState('');
+
   const getHospital = (provId, cityId, tipe) => {
     return fetch(
       `https://rs-bed-covid-api.vercel.app/api/get-hospitals?provinceid=${provId}&cityid=${cityId}&type=${tipe}`,
@@ -23,6 +26,7 @@ const RumahSakitScreen = ({route, navigation}) => {
       .then(response => response.json())
       .then(json => {
         setData(json.hospitals);
+        setFilterData(json.hospitals);
       })
       .catch(error => {
         console.error(error);
@@ -32,6 +36,21 @@ const RumahSakitScreen = ({route, navigation}) => {
   useEffect(() => {
     getHospital(provId, cityId, tipe);
   }, []);
+
+  const searchFilter = text => {
+    if (text) {
+      const newData = data.filter(item => {
+        const itemData = item.name ? item.name.toUpperCase() : ''.toUpperCase();
+        const textData = text.toUpperCase();
+        return itemData.indexOf(textData) > -1;
+      });
+      setFilterData(newData);
+      setsearch(text);
+    } else {
+      setFilterData(data);
+      setsearch(text);
+    }
+  };
 
   return (
     <View style={{flex: 1, backgroundColor: 'white'}}>
@@ -45,10 +64,12 @@ const RumahSakitScreen = ({route, navigation}) => {
         <TextInput
           placeholder="Cari Bedasarkan Nama Rumah Sakit"
           style={styles.textInput}
+          value={search}
+          onChangeText={text => searchFilter(text)}
         />
       </View>
       <FlatList
-        data={data}
+        data={filterData}
         renderItem={({item}) => (
           <RumahSakitCard
             namaRS={item.name}
@@ -62,6 +83,7 @@ const RumahSakitScreen = ({route, navigation}) => {
             tipe={tipe}
           />
         )}
+        keyExtractor={(item, index) => index.toString()}
       />
     </View>
   );
