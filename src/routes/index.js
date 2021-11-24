@@ -14,7 +14,6 @@ import IconRS from '../assets/Icon/Menu/rumahsakit.png';
 import IconPencegahan from '../assets/Icon/Menu/pencegahan.png';
 import GejalaScreen from '../screen/GejalaScreen';
 import PerawatanScreen from '../screen/PerawatanScreen';
-import {white} from 'react-native-paper/lib/typescript/styles/colors';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -39,29 +38,35 @@ const topTab = () => {
       style={{
         backgroundColor: 'white',
         flex: 1,
-        paddingHorizontal: 20,
         paddingVertical: 10,
       }}>
-      <Text style={{fontSize: 18, fontWeight: '600'}}>Cegah Covid-19</Text>
-      <Text style={{fontSize: 18, fontWeight: '600'}}>
-        dan bantu akhiri pandemi
-      </Text>
+      <View
+        style={{
+          paddingHorizontal: 20,
+        }}>
+        <Text
+          style={{
+            fontSize: 18,
+            fontWeight: '600',
+          }}>
+          Cegah COVID-19
+        </Text>
+        <Text style={{fontSize: 18, fontWeight: '600'}}>
+          dan bantu akhiri pandemi
+        </Text>
+      </View>
       <TopTab.Navigator
         screenOptions={{
           swipeEnabled: true,
           tabBarLabelStyle: {fontSize: 12},
-          tabBarActiveTintColor: '#000',
           tabBarPressColor: '#BF4A4C',
           tabBarItemStyle: {
             width: 'auto',
-            // backgroundColor: '#BF4A4C',
-            // borderRadius: 50,
-            marginHorizontal: 15,
+            marginHorizontal: 20,
             marginVertical: 10,
-            padding: 10,
+            paddingHorizontal: 10,
             color: 'white',
           },
-          tabBarStyle: {backgroundColor: 'white'},
         }}>
         <TopTab.Screen name="Pencegahan" component={PencegahanScreen} />
         <TopTab.Screen name="Gejala" component={GejalaScreen} />
@@ -95,7 +100,7 @@ const bottomTab = () => {
         }}
       />
       <Tab.Screen
-        name="Pencegahan"
+        name="PencegahanTab"
         component={topTab}
         options={{
           headerShown: false,

@@ -22,12 +22,20 @@ import moment from 'moment';
 
 const BerandaScreen = () => {
   const [data, setdata] = useState([]);
+  const [kasus, setkasus] = useState(0);
+  const [dirawat, setdirawat] = useState(0);
+  const [meninggal, setmeninggal] = useState(0);
+  const [sembuh, setsembuh] = useState(0);
+
   const getData = () => {
     return fetch('https://covid19.mathdro.id/api/countries/ID')
       .then(response => response.json())
       .then(json => {
-        // console.log(json);
         setdata(json);
+        setkasus(json.confirmed.value);
+        setdirawat(json.recovered.value);
+        setmeninggal(json.deaths.value);
+        setsembuh(kasus - dirawat - meninggal);
       })
       .catch(error => {
         console.error(error);
@@ -74,13 +82,13 @@ const BerandaScreen = () => {
         <View style={styles.kasusCard}>
           <KasusCard
             status="Kasus"
-            total={data.confirmed.value}
+            total={kasus}
             warna="#FC1441"
             bg_color="rgba(252, 20, 20, 0.1)"
           />
           <KasusCard
             status="Dirawat"
-            // total={data.recovered.value}
+            total={dirawat}
             warna="#157FFB"
             bg_color="rgba(21, 127, 251, 0.1)"
           />
@@ -88,13 +96,13 @@ const BerandaScreen = () => {
         <View style={styles.kasusCard}>
           <KasusCard
             status="Sembuh"
-            // total={data.recovered.value}
+            total={dirawat}
             warna="#30A64A"
             bg_color="rgba(48, 166, 74, 0.1)"
           />
           <KasusCard
             status="Meninggal Dunia"
-            // total={data.deaths.value}
+            total={meninggal}
             warna="#6D757D"
             bg_color="rgba(109, 117, 125, 0.1)"
           />
