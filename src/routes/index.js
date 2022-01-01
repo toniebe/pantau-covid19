@@ -8,12 +8,12 @@ import RsScreen from '../screen/RsScreen';
 import PencegahanScreen from '../screen/PencegahanScreen';
 import RumahSakitScreen from '../screen/RumahSakitScreen';
 import DetailKasurScreen from '../screen/DetailKasurScreen';
-
 import IconBeranda from '../assets/Icon/Menu/beranda.png';
 import IconRS from '../assets/Icon/Menu/rumahsakit.png';
 import IconPencegahan from '../assets/Icon/Menu/pencegahan.png';
 import GejalaScreen from '../screen/GejalaScreen';
 import PerawatanScreen from '../screen/PerawatanScreen';
+import MyTabBar from './MyTabBar'
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -56,6 +56,7 @@ const topTab = () => {
         </Text>
       </View>
       <TopTab.Navigator
+        tabBar={props => <MyTabBar {...props} />}
         screenOptions={{
           swipeEnabled: true,
           tabBarLabelStyle: {fontSize: 12},
@@ -67,7 +68,8 @@ const topTab = () => {
             paddingHorizontal: 10,
             color: 'white',
           },
-        }}>
+        }}
+        >
         <TopTab.Screen name="Pencegahan" component={PencegahanScreen} />
         <TopTab.Screen name="Gejala" component={GejalaScreen} />
         <TopTab.Screen name="Perawatan" component={PerawatanScreen} />
