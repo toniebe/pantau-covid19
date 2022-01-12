@@ -43,6 +43,7 @@ function MyTabBar({state, descriptors, navigation, position}) {
 
         return (
           <TouchableOpacity
+            key={index}
             accessibilityRole="button"
             accessibilityState={isFocused ? {selected: true} : {}}
             accessibilityLabel={options.tabBarAccessibilityLabel}
@@ -61,18 +62,20 @@ function MyTabBar({state, descriptors, navigation, position}) {
 const styles = StyleSheet.create({
   textLabel:{
     color:'#BBBBBB',
-    fontSize: 15
+    fontSize: 15,
+    fontFamily:'Rubik-Regular'
   },
   textActive:{
     color:'white',
-    fontSize: 15
+    fontSize: 15,
+    fontFamily:'Rubik-Regular'
   },
   contentActive:{
     flex:1,
     borderRadius:20,
     backgroundColor:'#BF4A4C',
-    paddingHorizontal:5,
-    paddingVertical:5,
+    paddingHorizontal:10,
+    paddingVertical:10,
     // marginRight:0,
     justifyContent:'center',
     alignItems:'center'

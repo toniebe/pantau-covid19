@@ -5,7 +5,7 @@ const ProtokolCard = ({image, title}) => {
   return (
     <View style={styles.container}>
       <Image source={image} style={{width: 114, height: 114}} />
-      <Text style={{fontSize: 18, fontWeight: '700'}}>{title}</Text>
+      <Text style={{fontSize: 18, fontWeight: '700', fontFamily:'Barlow-Bold'}}>{title}</Text>
     </View>
   );
 };

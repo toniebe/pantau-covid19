@@ -7,7 +7,7 @@ const SingleProtokolCard = () => {
     <View style={styles.container}>
       <Image source={cuciIcon} style={{width: 114, height: 114}} />
 
-      <Text style={{fontSize: 18, fontWeight: '700', textAlign: 'center'}}>
+      <Text style={{fontSize: 18, fontWeight: '700', textAlign: 'center',fontFamily:'Barlow-Bold'}}>
         Mencuci Tangan
       </Text>
     </View>

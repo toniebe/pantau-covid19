@@ -88,7 +88,7 @@ const RsScreen = ({navigation}) => {
       </View>
       <View style={styles.body}>
         <View style={styles.provinsi}>
-          <Text style={{fontSize: 14, color: '#707070', fontFamily: 'Barlow'}}>
+          <Text style={{fontSize: 14, color: '#707070', fontFamily: 'Barlow-Reguler'}}>
             Provinsi
           </Text>
           <DropDownPicker
@@ -108,7 +108,7 @@ const RsScreen = ({navigation}) => {
           />
         </View>
         <View style={styles.provinsi}>
-          <Text style={{fontSize: 14, color: '#707070', fontFamily: 'Barlow'}}>
+          <Text style={{fontSize: 14, color: '#707070', fontFamily: 'Barlow-Reguler'}}>
             Kabupaten/Kota
           </Text>
           <DropDownPicker
@@ -151,6 +151,7 @@ const RsScreen = ({navigation}) => {
                   color: checked === '1' ? '#141414' : '#BBBBBB',
                   fontWeight: '400',
                   fontSize: 18,
+                  fontFamily:'Rubik-Reguler'
                 }}>
                 COVID-19
               </Text>
@@ -161,6 +162,7 @@ const RsScreen = ({navigation}) => {
                 flexDirection: 'row',
                 alignItems: 'center',
                 marginLeft: 20,
+                
               }}>
               <RadioButton
                 value="2"
@@ -173,6 +175,7 @@ const RsScreen = ({navigation}) => {
                   color: checked === '2' ? '#141414' : '#BBBBBB',
                   fontWeight: '400',
                   fontSize: 18,
+                  fontFamily:'Rubik-Reguler'
                 }}>
                 Non COVID-19
               </Text>
@@ -198,6 +201,7 @@ const RsScreen = ({navigation}) => {
             style={{
               color: valueCity === null ? '#AAAAAA' : 'white',
               fontWeight: 'bold',
+              fontFamily:'Barlow-Bold'
             }}>
             Cari
           </Text>
@@ -254,6 +258,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     borderColor: '#cccccc',
     zIndex: -1,
+    fontFamily:'Rubik-Regular'
   },
   tipe: {
     marginBottom: 20,

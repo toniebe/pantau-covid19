@@ -11,6 +11,7 @@ export default function PencegahanCard({image, title, desc}) {
           fontSize: 18,
           fontWeight: '700',
           marginVertical: 10,
+          fontFamily:'Barlow-Bold'
         }}>
         {title}
       </Text>
@@ -20,6 +21,7 @@ export default function PencegahanCard({image, title, desc}) {
           fontSize: 14,
           lineHeight: 15,
           fontWeight: '400',
+          fontFamily:'Rubik-Regular'
         }}>
         {desc}
       </Text>

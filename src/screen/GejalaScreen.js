@@ -52,6 +52,7 @@ const GejalaScreen = () => {
                       color: '#707070',
                       lineHeight: 16.8,
                       marginBottom: 10,
+                      fontFamily:'Barlow-Regular'
                     }}>
                     {item}
                   </Text>
@@ -87,6 +88,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     color: 'black',
     marginBottom: 10,
+    fontFamily:'Barlow-SemiBold'
   },
   gejala: {
     flexDirection: 'row',

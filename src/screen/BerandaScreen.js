@@ -60,7 +60,7 @@ const BerandaScreen = () => {
             Jaga Diri dan Keluarga anda dari Virus Corona.
           </Text>
           <Text style={styles.Quote2}>
-            Bersama turunkan Kurva Ksus Positif COVID-19 di Indonesia
+            Bersama turunkan Kurva Kasus Positif COVID-19 di Indonesia
           </Text>
           <Image source={virusIcon} style={styles.virus2} />
         </View>
@@ -68,8 +68,8 @@ const BerandaScreen = () => {
       <View style={styles.kasus}>
         <View style={styles.headerKasus}>
           <View>
-            <Text style={{fontSize: 30, fontWeight: '600'}}>Kasus</Text>
-            <Text style={{fontSize: 16}}>
+            <Text style={{fontSize: 30, fontWeight: '600',fontFamily:'Barlow-SemiBold'}}>Kasus</Text>
+            <Text style={{fontSize: 16,fontFamily:'Rubik-Regular'}}>
               Update Terakhir : {moment(data.lastUpdate).format('LL')}
             </Text>
           </View>
@@ -109,7 +109,7 @@ const BerandaScreen = () => {
         </View>
       </View>
       <View style={styles.protokol}>
-        <Text style={{fontSize: 18, fontWeight: '600'}}>
+        <Text style={{fontSize: 18, fontWeight: '600',fontFamily:'Barlow-SemiBold'}}>
           Patuhi Protokol 5M
         </Text>
       </View>
@@ -136,6 +136,7 @@ const styles = StyleSheet.create({
   textIntro: {
     fontSize: 20,
     fontWeight: '600',
+    fontFamily: 'Barlow-SemiBold' ,
     marginHorizontal: 10,
     marginTop: 10,
   },
@@ -159,11 +160,14 @@ const styles = StyleSheet.create({
   },
   Quote1: {
     color: 'white',
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
+    fontFamily:'Barlow-Bold',
     fontSize: 18,
   },
   Quote2: {
     color: 'white',
+    fontFamily:'Rubik-Regular',
+    fontSize:12
   },
   kasus: {
     marginHorizontal: 10,

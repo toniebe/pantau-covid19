@@ -4,6 +4,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import BerandaScreen from '../screen/BerandaScreen';
+import SplashScreen from '../screen/SplashScreen';
 import RsScreen from '../screen/RsScreen';
 import PencegahanScreen from '../screen/PencegahanScreen';
 import RumahSakitScreen from '../screen/RumahSakitScreen';
@@ -48,10 +49,11 @@ const topTab = () => {
           style={{
             fontSize: 18,
             fontWeight: '600',
+            fontFamily:'Barlow-SemiBold'
           }}>
           Cegah COVID-19
         </Text>
-        <Text style={{fontSize: 18, fontWeight: '600'}}>
+        <Text style={{fontSize: 18, fontWeight: '600',fontFamily:'Barlow-SemiBold'}}>
           dan bantu akhiri pandemi
         </Text>
       </View>
@@ -118,7 +120,12 @@ const bottomTab = () => {
 
 export default function Router() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator initialRouteName='Splashscreen' >
+      <Stack.Screen 
+        name="Splashscreen"
+        component={SplashScreen}
+        options={{headerShown:false}}
+      />
       <Stack.Screen
         name="TabMenu"
         component={bottomTab}

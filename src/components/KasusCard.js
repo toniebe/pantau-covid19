@@ -27,12 +27,14 @@ const styles = StyleSheet.create({
     marginHorizontal: 7,
     marginBottom: 15,
     fontSize: 17,
+    fontFamily:'Barlow-Reguler'
   },
   angka: {
     marginVertical: 5,
     marginHorizontal: 7,
     fontSize: 25,
-    fontWeight: 'bold',
+    fontWeight: '500',
     textAlign: 'right',
+    fontFamily:'Rubik-SemiBold'
   },
 });

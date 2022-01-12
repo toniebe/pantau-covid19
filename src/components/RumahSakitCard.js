@@ -62,40 +62,78 @@ const RumahSakitCard = ({
     <View style={styles.container}>
       <View style={styles.top}>
         <View style={styles.topLeft}>
-          <Text style={{fontSize: 14, fontWeight: '700'}}>{namaRS}</Text>
+          <Text style={{fontSize: 14, fontFamily: 'Barlow-Bold'}}>
+            {namaRS}
+          </Text>
           <Text
             style={{
               fontSize: 12,
-              fontWeight: '400',
+              // fontWeight: '400',
+              fontFamily: 'Rubik-Regular',
               color: '#707070',
             }}>
             {jalanRS}
           </Text>
-          <Text style={{fontSize: 10, fontWeight: '400', color: '#707070'}}>
+          <Text
+            style={{
+              fontSize: 10,
+              fontWeight: '400',
+              color: '#707070',
+              fontFamily: 'Rubik-Regular',
+            }}>
             {updated}
           </Text>
         </View>
         <View style={styles.topRight}>
           {total === 0 ? (
-            <Text style={{fontSize: 14, fontWeight: '500', color: '#E3492B'}}>
+            <Text
+              style={{
+                fontSize: 14,
+                fontWeight: '500',
+                color: '#E3492B',
+                fontFamily: 'Rubik-Regular',
+              }}>
               Penuh!
             </Text>
           ) : (
             <View>
-              <Text style={{fontSize: 12, fontWeight: '400', color: '#2C2627'}}>
+              <Text
+                style={{
+                  fontSize: 12,
+                  fontWeight: '400',
+                  color: '#2C2627',
+                  fontFamily: 'Rubik-Regular',
+                  textAlign: 'center',
+                }}>
                 Tersedia
               </Text>
-              <Text style={{fontSize: 24, fontWeight: '700', color: '#2C2627'}}>
+              <Text
+                style={{
+                  fontSize: 24,
+                  fontFamily: 'Barlow-Bold',
+                  color: '#2C2627',
+                  textAlign: 'center',
+                }}>
                 {total}
               </Text>
               {antrian === 0 ? (
                 <Text
-                  style={{fontSize: 10, fontWeight: '400', color: '#2C2627'}}>
+                  style={{
+                    fontSize: 10,
+                    fontWeight: '400',
+                    color: '#2C2627',
+                    fontFamily: 'Rubik-Regular',
+                  }}>
                   Tanpa Antrian
                 </Text>
               ) : (
                 <Text
-                  style={{fontSize: 10, fontWeight: '400', color: '#2C2627'}}>
+                  style={{
+                    fontSize: 10,
+                    fontWeight: '400',
+                    color: '#2C2627',
+                    fontFamily: 'Rubik-Regular',
+                  }}>
                   {antrian} Antrian
                 </Text>
               )}
@@ -112,7 +150,14 @@ const RumahSakitCard = ({
               source={locationIcon}
               style={{height: 20, width: 20, resizeMode: 'contain'}}
             />
-            <Text style={{fontSize: 12, fontWeight: '500'}}>Lihat Lokasi</Text>
+            <Text
+              style={{
+                fontSize: 12,
+                fontWeight: '500',
+                fontFamily: 'Barlow-SemiBold',
+              }}>
+              Lihat Lokasi
+            </Text>
           </View>
         </TouchableOpacity>
         <TouchableOpacity
@@ -131,7 +176,12 @@ const RumahSakitCard = ({
               source={suiteIcon}
               style={{height: 20, width: 20, resizeMode: 'contain'}}
             />
-            <Text style={{fontSize: 12, fontWeight: '500'}}>
+            <Text
+              style={{
+                fontSize: 12,
+                fontWeight: '500',
+                fontFamily: 'Barlow-SemiBold',
+              }}>
               Lihat Detail Kasur
             </Text>
           </View>
@@ -140,7 +190,13 @@ const RumahSakitCard = ({
       <View style={styles.bot}>
         {noTelpon === null ? (
           <View style={styles.buttonCallnull}>
-            <Text style={{fontSize: 14, fontWeight: '700', color: '#AAAAAA'}}>
+            <Text
+              style={{
+                fontSize: 14,
+                fontWeight: '700',
+                color: '#AAAAAA',
+                fontFamily: 'Barlow-Bold',
+              }}>
               Tidak Tersedia
             </Text>
           </View>
@@ -152,7 +208,13 @@ const RumahSakitCard = ({
               source={phoneIcon}
               style={{width: 13, height: 13, marginRight: 10}}
             />
-            <Text style={{fontSize: 14, fontWeight: '700', color: 'white'}}>
+            <Text
+              style={{
+                fontSize: 14,
+                fontWeight: '700',
+                color: 'white',
+                fontFamily: 'Barlow-Bold',
+              }}>
               {noTelpon}
             </Text>
           </TouchableOpacity>
@@ -185,9 +247,9 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   topRight: {
-    flex: 0.5,
+    flex: 1,
     alignItems: 'flex-end',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
   },
   mid: {
     flex: 1,

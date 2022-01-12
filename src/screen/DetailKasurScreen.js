@@ -28,11 +28,11 @@ const DetailKasurScreen = ({route}) => {
   return (
     <View style={styles.container}>
       <View style={styles.judul}>
-        <Text style={{fontSize: 20, fontWeight: '700'}}>{namaRS}</Text>
-        <Text style={{fontSize: 14, fontWeight: '400', color: '#707070'}}>
+        <Text style={{fontSize: 20, fontWeight: '700',fontFamily:'Barlow-Bold'}}>{namaRS}</Text>
+        <Text style={{fontSize: 14, fontWeight: '400', color: '#707070',fontFamily:'Rubik-Regular'}}>
           {alamat}
         </Text>
-        <Text style={{fontSize: 14, fontWeight: '400', color: '#707070'}}>
+        <Text style={{fontSize: 14, fontWeight: '400', color: '#707070',fontFamily:'Rubik-Regular'}}>
           {telpon}
         </Text>
       </View>

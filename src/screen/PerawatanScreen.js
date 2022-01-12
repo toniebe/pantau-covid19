@@ -26,7 +26,7 @@ const PerawatanScreen = () => {
           ListHeaderComponent={
             <>
               <Text style={styles.title}>Isolasi Mandiri</Text>
-              <Text style={{fontSize: 14, color: '#707070', marginBottom: 10}}>
+              <Text style={{fontSize: 14, color: '#707070', marginBottom: 10,fontFamily:'Barlow-Regular'}}>
                 Setelah terpapar orang yang terinfeksi COVID-19 lakukan tidakan
                 berikut:
               </Text>
@@ -38,7 +38,7 @@ const PerawatanScreen = () => {
               <Text style={{color: '#2C3D63', marginRight: 10}}>
                 {'\u2B24'}
               </Text>
-              <Text style={{color: '#707070', paddingHorizontal: 10}}>
+              <Text style={{color: '#707070', paddingHorizontal: 10,fontFamily:'Barlow-Regular'}}>
                 {item}
               </Text>
             </View>
@@ -48,7 +48,7 @@ const PerawatanScreen = () => {
               <View>
                 <Text style={styles.title}>Terapi Medis</Text>
                 <Text
-                  style={{fontSize: 14, color: '#707070', marginBottom: 10}}>
+                  style={{fontSize: 14, color: '#707070', marginBottom: 10,fontFamily:'Barlow-Regular'}}>
                   Setelah terpapar orang yang terinfeksi COVID-19 lakukan
                   tidakan berikut:
                 </Text>
@@ -57,7 +57,7 @@ const PerawatanScreen = () => {
                     <Text style={{color: '#2C3D63', marginRight: 10}}>
                       {'\u2B24'}
                     </Text>
-                    <Text style={{color: '#707070', paddingHorizontal: 10}}>
+                    <Text style={{color: '#707070', paddingHorizontal: 10,fontFamily:'Barlow-Regular'}}>
                       Perawatan pendukung yang optimal meliputi pemberian
                       oksigen bagi pasien yang sakit parah dan berisiko
                       mengalami sakit parah, serta alat bantu pernapasan
@@ -69,7 +69,7 @@ const PerawatanScreen = () => {
                     <Text style={{color: '#2C3D63', marginRight: 10}}>
                       {'\u2B24'}
                     </Text>
-                    <Text style={{color: '#707070', paddingHorizontal: 10}}>
+                    <Text style={{color: '#707070', paddingHorizontal: 10,fontFamily:'Barlow-Regular'}}>
                       Dexamethasone adalah kortikosteroid yang dapat membantu
                       mengurangi durasi penggunaan ventilator dan menyelamatkan
                       nyawa pasien yang sakit parah dan kritis.
@@ -77,7 +77,7 @@ const PerawatanScreen = () => {
                   </View>
                 </View>
                 <Text
-                  style={{fontSize: 14, color: '#707070', marginBottom: 10}}>
+                  style={{fontSize: 14, color: '#707070', marginBottom: 10,fontFamily:'Barlow-Regular'}}>
                   WHO tidak merekomendasikan perawatan mandiri dengan obat apa
                   pun, termasuk antibiotik, sebagai pencegahan atau pengobatan
                   untuk COVID-19.
@@ -106,6 +106,7 @@ const styles = StyleSheet.create({
   tindakan: {
     flexDirection: 'row',
     marginBottom: 5,
+    alignItems:'center'
   },
-  title: {fontSize: 24, fontWeight: '600', marginBottom: 15},
+  title: {fontSize: 24, fontWeight: '600', marginBottom: 15,fontFamily:'Barlow-SemiBold'},
 });

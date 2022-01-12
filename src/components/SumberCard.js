@@ -14,7 +14,7 @@ const SumberCard = () => {
         flexDirection: 'row',
         alignItems: 'center',
       }}>
-      <Text> Sumber: who.int</Text>
+      <Text style={{fontFamily:'Rubik-Regular',color:'#707070'}}> Sumber: who.int</Text>
       <TouchableOpacity onPress={() => linking()}>
         <Image source={link} style={{width: 20, height: 20}} />
       </TouchableOpacity>
