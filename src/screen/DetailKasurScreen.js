@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {FlatList, StyleSheet, Text, View} from 'react-native';
+import {FlatList, StyleSheet, Text, View, ActivityIndicator} from 'react-native';
 import DetailKasurCard from '../components/DetailKasurCard';
 
 const DetailKasurScreen = ({route}) => {
@@ -13,7 +13,7 @@ const DetailKasurScreen = ({route}) => {
     )
       .then(response => response.json())
       .then(json => {
-        console.log(json.data.bedDetail);
+        // console.log(json.data.bedDetail);
         setData(json.data.bedDetail);
       })
       .catch(error => {
@@ -37,7 +37,9 @@ const DetailKasurScreen = ({route}) => {
         </Text>
       </View>
 
-      <FlatList
+      {
+        data.length > 0 ? (
+          <FlatList
         data={data}
         renderItem={({item}) => (
           <DetailKasurCard
@@ -49,6 +51,10 @@ const DetailKasurScreen = ({route}) => {
           />
         )}
       />
+        ):(
+          <ActivityIndicator size="large" color="#0000ff" />
+        )
+      }
     </View>
   );
 };

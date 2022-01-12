@@ -109,6 +109,7 @@ const bottomTab = () => {
           tabBarIcon: props => {
             return <IconBottom data={props} image={IconPencegahan} />;
           },
+          tabBarLabel:'Pencegahan',
         }}
       />
     </Tab.Navigator>

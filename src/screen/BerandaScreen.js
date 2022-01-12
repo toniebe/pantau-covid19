@@ -74,7 +74,7 @@ const BerandaScreen = () => {
             </Text>
           </View>
           <View>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => getData() }>
               <Image source={refreshIcon} style={{width: 20, height: 20}} />
             </TouchableOpacity>
           </View>

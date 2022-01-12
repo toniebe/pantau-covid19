@@ -8,6 +8,7 @@ import {
   View,
   ScrollView,
   FlatList,
+  ActivityIndicator,
 } from 'react-native';
 
 import HeaderNav from '../components/HeaderNav';
@@ -68,23 +69,27 @@ const RumahSakitScreen = ({route, navigation}) => {
           onChangeText={text => searchFilter(text)}
         />
       </View>
-      <FlatList
-        data={filterData}
-        renderItem={({item}) => (
-          <RumahSakitCard
-            namaRS={item.name}
-            jalanRS={item.address}
-            updated={item.info}
-            total={item.bed_availability}
-            antrian={item.queue}
-            noTelpon={item.phone}
-            navigasi={navigation}
-            idHospital={item.id}
-            tipe={tipe}
-          />
-        )}
-        keyExtractor={(item, index) => index.toString()}
-      />
+      {filterData.length > 0 ? (
+        <FlatList
+          data={filterData}
+          renderItem={({item}) => (
+            <RumahSakitCard
+              namaRS={item.name}
+              jalanRS={item.address}
+              updated={item.info}
+              total={item.bed_availability}
+              antrian={item.queue}
+              noTelpon={item.phone}
+              navigasi={navigation}
+              idHospital={item.id}
+              tipe={tipe}
+            />
+          )}
+          keyExtractor={(item, index) => index.toString()}
+        />
+      ) : (
+        <ActivityIndicator size="large" color="#0000ff" />
+      )}
     </View>
   );
 };

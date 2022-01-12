@@ -60,14 +60,12 @@ const GejalaScreen = () => {
             />
           </View>
         )}
-
         ListFooterComponent={
-          <View style={{marginHorizontal:20}}>
+          <View style={{marginHorizontal: 20}}>
             <SumberCard />
           </View>
         }
       />
-     
     </View>
   );
 };

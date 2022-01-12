@@ -19,7 +19,7 @@ const HeaderNav = ({action, kota, provinsi, tipe}) => {
           </Text>
         </View>
         <View style={styles.headerRight}>
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity style={styles.button} onPress={() => action.navigate('RumahSakit')}>
             <Text>Ubah</Text>
           </TouchableOpacity>
         </View>
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   headerRight: {
-    flex: 1,
+    flex: 2,
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 20,

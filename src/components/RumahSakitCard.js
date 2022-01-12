@@ -31,7 +31,7 @@ const RumahSakitCard = ({
     )
       .then(response => response.json())
       .then(json => {
-        console.log(json.data.gmaps);
+        // console.log(json.data.gmaps);
         setData(json.data.gmaps);
       })
       .catch(error => {
